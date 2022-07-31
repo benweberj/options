@@ -10,10 +10,6 @@ const SketchOptions = props => {
     const [closed, setClosed] = useState(false)
     const [openDescriptions, setOpenDescriptions] = useState(new Set())
 
-    useEffect(() => {
-        console.log(openDescriptions)
-    })
-
     function handleDescription(name) {
         let newDesc = new Set(JSON.parse(JSON.stringify(Array.from(openDescriptions))))
         if (openDescriptions.has(name)) {
