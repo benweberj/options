@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600&family=Ubuntu+Mono:wght@400;700&display=swap");
+html {
+  font-size: 17px;
+}
+
+body {
+  background: rgb(44, 55, 55);
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  font-family: "Assistant", sans-serif;
+  color: white;
+}
+
+.to-repo {
+  margin-top: 30px;
+  color: white;
+  font-weight: 100;
+  font-size: 1.1rem;
+}
+
+a {
+  color: #83E8BA;
+  text-decoration: none;
+  font-weight: 400;
+}
+a:hover {
+  color: rgba(131, 232, 186, 0.4666666667);
+}
+
+.code {
+  font-size: 0.7rem;
+  font-family: "Ubunto Mono", monospace;
+  font-weight: 100;
+}
+
+button {
+  cursor: pointer;
+}
+
+#sketch-container {
+  height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  width: 20px;
+  background: rgba(131, 232, 186, 0.4666666667);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #83E8BA;
+}
+
+#sketch-options {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  max-width: 250px;
+  overflow-y: auto;
+  background: rgba(44, 55, 55, 0.75);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 2;
+}
+#sketch-options.closed {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+#sketch-options #sketch-title {
+  color: #83E8BA;
+  font-size: 1.2rem;
+  font-weight: 100;
+  border-bottom: 1px solid rgba(131, 232, 186, 0.4666666667);
+  text-align: center;
+  padding: 20px;
+}
+#sketch-options .sketch-description {
+  padding: 20px;
+  font-weight: 100;
+  font-size: 0.9rem;
+}
+#sketch-options > div {
+  padding: 0 30px 30px 30px;
+}
+#sketch-options .option {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#sketch-options .option p {
+  color: white;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  display: inline-block;
+}
+#sketch-options .option p img {
+  width: 15px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+#sketch-options .option p img.open {
+  transform: rotateX(180deg);
+}
+#sketch-options .option p img:hover {
+  opacity: 0.5;
+}
+#sketch-options .option .bool-toggle {
+  width: 40px;
+  background: #f5877f;
+  border-radius: 999px;
+  padding: 4px;
+  transition: background 0.25s ease;
+}
+#sketch-options .option .bool-toggle.on {
+  background: #83E8BA;
+}
+#sketch-options .option .bool-toggle.on > div {
+  transform: translateX(22px);
+}
+#sketch-options .option .bool-toggle > div {
+  transition: transform 0.2s ease;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: white;
+}
+#sketch-options .option input {
+  outline: none;
+  border: none;
+  border-radius: 99px;
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.3333333333);
+  width: 50px;
+  color: #83f883;
+  margin: 0 5px;
+  text-align: center;
+  cursor: url("./cursor.png"), auto;
+}
+#sketch-options .description-area p {
+  margin-top: 10px;
+  font-weight: 100;
+  font-size: 0.9rem;
+}
+#sketch-options #sketch-buttons {
+  padding-top: 30px;
+}
+#sketch-options #sketch-buttons button {
+  padding: 4px 25px;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 99px;
+}
+#sketch-options #sketch-buttons button:hover {
+  opacity: 0.5;
+}
+#sketch-options #sketch-buttons button:active {
+  transform: scale(0.9);
+}
+#sketch-options #sketch-buttons button#close-sketch-options {
+  background: rgba(245, 135, 127, 0.4666666667);
+}
+#sketch-options #sketch-buttons button#apply-sketch-options {
+  background: rgba(131, 232, 186, 0.4666666667);
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+#sketch-options .repo {
+  background: red;
+}
+
+.show-sketch-options {
+  position: absolute;
+  z-index: 99999999;
+  top: 10px;
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  filter: invert(1);
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+.show-sketch-options.closed {
+  opacity: 0;
+  transform: scale(0);
+}
+.show-sketch-options:hover {
+  opacity: 1;
+}/*# sourceMappingURL=styles.css.map */

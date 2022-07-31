@@ -1,0 +1,225 @@
+$red: #f5877f;
+$green: #83E8BA;
+$light-green: #83f883;
+$red-transparent: #f5877f77;
+$green-transparent: #83E8BA77;
+
+$bg: rgb(44, 55, 55);
+$bg-transparent: rgba(44, 55, 55, .75);
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;400;600&family=Ubuntu+Mono:wght@400;700&display=swap');
+
+html { font-size: 17px; }
+body { background: rgb(44, 55, 55); overflow: hidden; }
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .25s ease;
+    font-family: 'Assistant', sans-serif;
+    color: white;
+}
+
+.to-repo {
+    margin-top: 30px;
+    color: white;
+    font-weight: 100;
+    font-size: 1.1rem;
+}
+
+a {
+    color: $green;
+    text-decoration: none;
+    font-weight: 400;
+
+    &:hover {
+        color: $green-transparent;
+    }
+}
+
+.code {
+    font-size: .7rem;
+    font-family: 'Ubunto Mono', monospace;
+    font-weight: 100;
+}
+
+button { cursor: pointer; }
+  
+#sketch-container { height: 100vh; }
+
+::-webkit-scrollbar {
+    width: 2px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-track {
+    width: 20px;
+    background: $green-transparent;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: $green;
+}
+
+#sketch-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 250px;
+    overflow-y: auto;
+    background: $bg-transparent;
+    transition: transform .5s ease, opacity .5s ease;
+    z-index: 2;
+  
+    &.closed { transform: translateX(-100%); opacity: 0; }
+
+
+    #sketch-title {
+        color: $green;
+        font-size: 1.2rem;
+        font-weight: 100;
+        // background: #83E8BA22;
+        border-bottom: 1px solid $green-transparent;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .sketch-description {
+        padding: 20px;
+        font-weight: 100;
+        font-size: .9rem;
+    }
+
+    & > div {
+        padding: 0 30px 30px 30px;
+    }
+    
+    .option {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        p {
+            color: white;
+            margin-bottom: 5px;
+            font-size: .8rem;
+            font-weight: 400;
+            display: inline-block;
+
+            img {
+                width: 15px;
+                margin-right: 5px;
+                cursor: pointer;
+
+                &.open {
+                    transform: rotateX(180deg);
+                }
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+        }
+
+        .bool-toggle {
+            width: 40px;
+            background: $red;
+            border-radius: 999px;
+            padding: 4px;
+            transition: background .25s ease;
+          
+            &.on {
+                background: $green;
+          
+                > div {
+                    transform: translateX(22px);
+                }
+            }
+          
+            > div {
+                transition: transform .2s ease;
+                width: 10px;
+                height: 10px;
+                border-radius: 999px;
+                background: white;
+            }
+        }
+
+        
+        input {
+            outline: none;
+            border: none;
+            border-radius: 99px;
+            padding: 3px 10px;
+            background: #fff5;
+            width: 50px;
+            color: $light-green;
+            margin: 0 5px;
+            text-align: center;
+            cursor: url('./cursor.png'), auto;
+        }
+    }
+
+    .description-area {
+        p {
+            margin-top: 10px;
+            font-weight: 100;
+            font-size: .9rem;
+        }
+    }
+
+    #sketch-buttons {
+        padding-top: 30px;
+
+        button {
+            padding: 4px 25px;
+            color: #fff;
+            border: none;
+            outline: none;
+            border-radius: 99px;
+      
+            &:hover { opacity: .5; }
+      
+            &:active { transform: scale(.9) }
+    
+            &#close-sketch-options {
+                background: $red-transparent;
+            }
+              
+            &#apply-sketch-options {
+                background: $green-transparent;
+                margin-bottom: 5px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .repo {
+        background: red;
+    }
+}
+  
+  
+.show-sketch-options {
+    position: absolute;
+    z-index: 99999999;
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    filter: invert(1);
+    opacity: .3;
+    transition: all .5s ease;
+  
+    &.closed {
+        opacity: 0;
+        transform: scale(0);
+    }
+  
+    &:hover {
+        opacity: 1;
+    }
+}
